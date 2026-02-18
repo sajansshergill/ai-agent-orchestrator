@@ -16,7 +16,15 @@ def get_conversation(db: Session, conversation_id: str) -> Conversation | None:
     return db.get(Conversation, conversation_id)
 
 
-def add_message(db: Session, conversation_id: str, role: str, content: str) -> Message:
+def add_message(
+    db: Session,
+    conversation_id: str,
+    role: str,
+    content: str,
+) -> Message:
+    """
+    NOTE: Keep this signature stable. Our API code calls add_message(..., role=..., content=...).
+    """
     msg = Message(conversation_id=conversation_id, role=role, content=content)
     db.add(msg)
     db.commit()
