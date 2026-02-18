@@ -11,3 +11,4 @@ celery==5.4.0
 
 python-multipart==0.0.12
 alembic==1.13.2
+langgraph==0.2.40
